@@ -1,0 +1,7 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+client_manager,client manager,model_clientspec_client,group_manager,1,1,1,1
+commande_manager,commande manager,model_clientspec_commande,group_manager,1,1,1,1
+assurance_manager,assurance manager,model_clientspec_assurance,group_manager,1,1,1,1
+client_read_all,client all,model_clientspec_client,,1,0,0,0
+commande_read_all,commande all,model_clientspec_commande,,1,0,0,0
+assurance_read_all,assurance all,model_clientspec_assurance,,1,0,0,0

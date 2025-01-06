@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="client_form_view">
+            <field name="name">client.form</field>
+            <field name="model">clientspec.client</field>
+            <field name="arch" type="xml">
+                <form string="client Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>                          			    
+                        </group>                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- override the automatically generated list view for clients -->
+        <record model="ir.ui.view" id="client_tree_view">
+            <field name="name">client.tree</field>
+            <field name="model">clientspec.client</field>
+            <field name="arch" type="xml">
+                <tree string="client Tree">
+                    <field name="name"/>                    
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="client_search_view">
+            <field name="name">client.search</field>
+            <field name="model">clientspec.client</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>                
+                </search>
+            </field>
+        </record>
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="client_list_action">
+            <field name="name">clients</field>
+            <field name="res_model">clientspec.client</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first client
+                </p>
+            </field>
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_clientspec_menu" name="Client Spec"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="clientspec_menu" name="Client Spec"
+                  parent="main_clientspec_menu"/>
+        <!-- the following menuitem should appear *after*
+             its parent clientspec_menu and *after* its
+             action client_list_action -->
+        <menuitem id="clients_menu" name="clients" parent="clientspec_menu"
+                  action="client_list_action"/>
+        <!-- Full id location:
+             action="clientspec.client_list_action"
+             It is not required when it is the same module -->
+
+        <!-- commande form view -->
+        <record model="ir.ui.view" id="commande_form_view">
+            <field name="name">commande.form</field>
+            <field name="model">clientspec.commande</field>
+            <field name="arch" type="xml">
+                <form string="commande Form">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="client_id"/>
+                                <field name="name"/>
+                            </group>
+                            <group string="Commandes">
+                                <field name="date"/>
+                                <field name="price"/>                              
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- commande tree/list view -->
+        <record model="ir.ui.view" id="commande_tree_view">
+            <field name="name">commande.tree</field>
+            <field name="model">clientspec.commande</field>
+            <field name="arch" type="xml">
+                <tree string="commande Tree">
+                    <field name="name"/>
+                    <field name="client_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="commande_list_action">
+            <field name="name">commandes</field>
+            <field name="res_model">clientspec.commande</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="commande_menu" name="commandes"
+                  parent="clientspec_menu"
+                  action="commande_list_action"/>
+
+        <!-- assurance form view -->
+        <record model="ir.ui.view" id="assurance_form_view">
+            <field name="name">assurance.form</field>
+            <field name="model">clientspec.assurance</field>
+            <field name="arch" type="xml">
+                <form string="assurance Form">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="client_id"/>
+                                <field name="label"/>
+                            </group>
+                            <group string="Assurance">
+                                <field name="dateSouscription"/>
+                                <field name="piece"/>                              
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- assurance tree/list view -->
+        <record model="ir.ui.view" id="assurance_tree_view">
+            <field name="name">assurance.tree</field>
+            <field name="model">clientspec.assurance</field>
+            <field name="arch" type="xml">
+                <tree string="assurance Tree">
+                    <field name="label"/>
+                    <field name="client_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="assurance_list_action">
+            <field name="name">assurances</field>
+            <field name="res_model">clientspec.assurance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="assurance_menu" name="assurances"
+                  parent="clientspec_menu"
+                  action="assurance_list_action"/>
+
+</odoo>

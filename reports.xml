@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="report_commande" model="ir.actions.report">
+        <field name="name">Commande Report</field>
+        <field name="model">clientspec.client</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">clientspec.report_commande_view</field>
+        <field name="report_file">clientspec.report_commande</field>
+        <field name="binding_model_id" ref="model_clientspec_client"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_commande_view">
+        <t t-call="web.html_container">
+<t t-foreach="docs" t-as="doc">
+		<h2>Commande list</h2>   
+		<t t-esc="doc.name"/>
+		<t t-foreach="doc.commande_ids" t-as="cde">
+                               <!-- <li><span t-field="cde.client_id"/></li>-->
+				<p>commande:</p>
+				<t t-esc="cde.name"/>
+				<p>date:</p>	
+				<t t-esc="cde.date"/>
+				<p>price:</p>
+				<t t-esc="cde.price"/>
+                </t>                        
+            </t>
+        </t>
+    </template>
+
+</odoo>

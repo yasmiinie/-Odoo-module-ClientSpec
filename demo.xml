@@ -1,0 +1,25 @@
+<odoo>
+
+        <!--  -->
+           <record id="client0" model="clientspec.client"> 
+             <field name="name">client 0</field> 
+          </record> 
+        
+         <record id="client1" model="clientspec.client"> 
+       <field name="name">client 1</field> 
+     </record>
+        <!--  -->
+          <record id="client2" model="clientspec.client"> 
+            <field name="name">client 2</field> 
+          </record> 
+        <!--  -->
+         <record id="client3" model="clientspec.client"> 
+         <field name="name">client 3</field> 
+           </record> 
+        
+   <record id="client4" model="clientspec.client"> 
+             <field name="name">client 4</field> 
+      </record> 
+        <!--  -->
+
+</odoo>
